@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🇯🇵 AutoJP - Подать объявление</title>
+    <link rel="stylesheet" href="css/cyberpunk.css">
+    <link rel="stylesheet" href="css/night-tokyo.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">🇯🇵 AutoJP</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="abs.html">Объявления</a>
+            <a href="profile.html" id="profileLink" style="display:none;">Профиль</a>
+        </nav>
+    </header>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+
+    <main class="form-container">
+        <div class="create-card">
+            <h2>📝 Подать объявление</h2>
+
+            <form id="adForm">
+                <div class="input-group">
+                    <label for="brand">Марка</label>
+                    <input type="text" id="brand" placeholder="Введите марку" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="model">Модель</label>
+                    <input type="text" id="model" placeholder="Введите модель" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="year">Год выпуска</label>
+                    <input type="number" id="year" placeholder="2020" min="1990" max="2025" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="mileage">Пробег (км)</label>
+                    <input type="number" id="mileage" placeholder="35000" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="engine">Двигатель</label>
+                    <select id="engine" required>
+                        <option value="">Выберите тип двигателя</option>
+                        <option value="бензин">Бензин</option>
+                        <option value="дизель">Дизель</option>
+                        <option value="гибрид">Гибрид</option>
+                        <option value="электро">Электро</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="transmission">Коробка передач</label>
+                    <select id="transmission" required>
+                        <option value="">Выберите тип коробки</option>
+                        <option value="механика">Механика</option>
+                        <option value="автомат">Автомат</option>
+                        <option value="вариатор">Вариатор</option>
+                        <option value="робот">Робот</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="drive">Привод</label>
+                    <select id="drive" required>
+                        <option value="">Выберите тип привода</option>
+                        <option value="передний">Передний</option>
+                        <option value="задний">Задний</option>
+                        <option value="полный">Полный</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="color">Цвет</label>
+                    <input type="text" id="color" placeholder="Введите цвет" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="price">Цена (₽)</label>
+                    <input type="number" id="price" placeholder="1200000" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="description">Описание</label>
+                    <textarea id="description" rows="4" placeholder="Комплектация, состояние, дефекты..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="photos">Фотографии</label>
+                    <input type="file" id="photos" multiple accept="image/">
+                </div>
+
+                <button type="submit" class="btn-create">
+                    <a href="abs.html">📤 Опубликовать объявление</a>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 🇯🇵 AutoJP — Ваша безопасность важна для нас</p>
+    </footer>
+    <script src="firebase.js"></script>
+    <script src="index/index.js"></script>
+    <script src="profile/profile.js"></script>
+    <script src="add/add-ad.js"></script>
+    <script>
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'cyberpunk') {
+                document.body.classList.add('cyberpunk');
+            } else if (savedTheme === 'night-tokyo') {
+                document.body.classList.add('night-tokyo');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /profile.html
+Disallow: /add-ad.html
+Disallow: /api/
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+Disallow: /images/
+
+Sitemap: http://127.0.0.1:5500/sitemap.xml

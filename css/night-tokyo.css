@@ -1,0 +1,658 @@
+/* Night Tokyo Theme — Полный стиль */
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.night-tokyo {
+    font-family: 'Yu Gothic', 'Hiragino Sans', 'MS Gothic', sans-serif;
+    background: url('../backround/night.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.5s ease, color 0.5s ease;
+    position: relative;
+}
+
+/* Затемнение фона */
+body.night-tokyo::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+/* Шапка */
+body.night-tokyo .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+body.night-tokyo nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    text-shadow: 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo nav a:hover {
+    color: #8a2be2;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+/* Контейнеры форм */
+body.night-tokyo .form-container,
+body.night-tokyo .login-container,
+body.night-tokyo .register-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+body.night-tokyo .login-card,
+body.night-tokyo .register-card,
+body.night-tokyo .create-card {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    text-align: center;
+    backdrop-filter: blur(15px);
+}
+
+body.night-tokyo .login-card h2,
+body.night-tokyo .register-card h2,
+body.night-tokyo .create-card h2 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+/* Поля ввода */
+body.night-tokyo .input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+body.night-tokyo .input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo .input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    transition: border-color 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+body.night-tokyo .input-group input:focus {
+    outline: none;
+    border-color: rgba(138, 43, 226, 0.6);
+    box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.4);
+}
+
+/* Кнопки */
+body.night-tokyo .btn-login,
+body.night-tokyo .btn-register,
+body.night-tokyo .btn-create {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+body.night-tokyo .btn-login:hover,
+body.night-tokyo .btn-register:hover,
+body.night-tokyo .btn-create:hover {
+    background: rgba(138, 43, 226, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    border-color: rgba(138, 43, 226, 0.6);
+}
+
+/* Ссылки */
+body.night-tokyo .links {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+body.night-tokyo .links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+    text-shadow: 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo .links a:hover {
+    color: #8a2be2;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body.night-tokyo .login-card,
+    body.night-tokyo .register-card,
+    body.night-tokyo .create-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Футер */
+body.night-tokyo .footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    margin-top: auto;
+    border-top: 1px solid rgba(138, 43, 226, 0.3);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Герой-секция */
+body.night-tokyo .hero-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 2rem auto;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.2);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    backdrop-filter: blur(15px);
+    color: #ffffff;
+}
+
+body.night-tokyo .hero-section h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+body.night-tokyo .subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+/* Поиск */
+body.night-tokyo .search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+body.night-tokyo .search-bar input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    border-radius: 50px 0 0 50px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+body.night-tokyo .search-bar input:focus {
+    border-color: rgba(138, 43, 226, 0.6);
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.4);
+}
+
+body.night-tokyo .search-bar button {
+    padding: 1rem 1.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+body.night-tokyo .search-bar button:hover {
+    background: rgba(138, 43, 226, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    border-color: rgba(138, 43, 226, 0.6);
+}
+
+/* Промо-карточки */
+body.night-tokyo .promo-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+body.night-tokyo .card-link {
+    text-decoration: none;
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+}
+
+body.night-tokyo .card {
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(138, 43, 226, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    backdrop-filter: blur(15px);
+    height: 400px;
+}
+
+body.night-tokyo .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(138, 43, 226, 0.4);
+    border-color: rgba(138, 43, 226, 0.5);
+}
+
+body.night-tokyo .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+body.night-tokyo .card-content {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+body.night-tokyo .card-content h3 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+body.night-tokyo .card-content p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-shadow: 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+/* Профиль */
+body.night-tokyo .profile-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    background: transparent;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+body.night-tokyo .profile-card {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2);
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    text-align: center;
+    backdrop-filter: blur(15px);
+}
+
+body.night-tokyo .profile-card h2 {
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+body.night-tokyo .profile-card h3 {
+    color: #ffffff;
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+body.night-tokyo #userInfo {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+body.night-tokyo #userInfo p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+body.night-tokyo .profile-actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+body.night-tokyo .profile-actions button {
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+body.night-tokyo .profile-actions button:hover {
+    background: rgba(138, 43, 226, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    border-color: rgba(138, 43, 226, 0.6);
+}
+
+body.night-tokyo .edit-form,
+body.night-tokyo .password-form {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+body.night-tokyo .edit-form .input-group,
+body.night-tokyo .password-form .input-group {
+    margin-bottom: 1.5rem;
+}
+
+body.night-tokyo .edit-form label,
+body.night-tokyo .password-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-shadow: 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo .edit-form input,
+body.night-tokyo .password-form input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    transition: border-color 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+body.night-tokyo .edit-form input:focus,
+body.night-tokyo .password-form input:focus {
+    outline: none;
+    border-color: rgba(138, 43, 226, 0.6);
+    box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.4);
+}
+
+body.night-tokyo .form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+body.night-tokyo .form-actions button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+body.night-tokyo .form-actions .save-btn {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo .form-actions .save-btn:hover {
+    background: rgba(138, 43, 226, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    border-color: rgba(138, 43, 226, 0.6);
+}
+
+body.night-tokyo .form-actions .cancel-btn {
+    background: rgba(108, 117, 125, 0.8);
+    color: white;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo .form-actions .cancel-btn:hover {
+    background: rgba(84, 91, 98, 0.8);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+    border-color: rgba(138, 43, 226, 0.6);
+}
+
+body.night-tokyo #userAds {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+body.night-tokyo .ad-card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(138, 43, 226, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+body.night-tokyo .ad-card h4 {
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+body.night-tokyo .ad-card p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+body.night-tokyo .price {
+    color: #8a2be2;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+}
+
+/* Все объявления */
+body.night-tokyo .ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+body.night-tokyo .card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #8a2be2;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #8a2be2;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+body.night-tokyo .card:hover {
+    box-shadow: 0 0 25px #8a2be2;
+    border-color: #8a2be2;
+}
+
+body.night-tokyo .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #8a2be2;
+}
+
+body.night-tokyo .card-content {
+    padding: 1rem;
+    text-align: center;
+}
+
+body.night-tokyo .card-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px #8a2be2;
+}
+
+body.night-tokyo .card-content p {
+    margin: 0.25rem 0;
+    color: #cccccc;
+    font-size: 0.9rem;
+    text-shadow: 0 0 3px #8a2be2;
+}
+
+body.night-tokyo .price {
+    font-weight: bold;
+    color: #8a2be2;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+}
+
+body.night-tokyo .author {
+    color: #aaaaaa;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    text-shadow: 0 0 2px #8a2be2;
+}
+
+/* Переключатель тем */
+body.night-tokyo .theme-switcher {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+}
+
+body.night-tokyo button,
+body.night-tokyo .btn-login,
+body.night-tokyo .btn-register,
+body.night-tokyo .btn-create,
+body.night-tokyo .theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #8a2be2;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8a2be2;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-size: 0.9rem;
+    margin: 0.3rem;
+    backdrop-filter: blur(10px);
+}
+
+body.night-tokyo button:hover,
+body.night-tokyo .btn-login:hover,
+body.night-tokyo .btn-register:hover,
+body.night-tokyo .btn-create:hover,
+body.night-tokyo .theme-toggle-btn:hover {
+    background: rgba(138, 43, 226, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 15px #8a2be2;
+    border-color: #8a2be2;
+}

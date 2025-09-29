@@ -1,0 +1,518 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Yu Gothic', 'Hiragino Sans', 'MS Gothic', sans-serif;
+    background: url('../backround/night.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.5s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #ffcc00;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff6600;
+}
+
+/* Контейнер для форм */
+.form-container, .login-container, .register-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-card, .register-card, .create-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #e6b800;
+    text-align: center;
+}
+
+.login-card h2, .register-card h2, .create-card h2 {
+    color: #cc0000;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #cc0000;
+    box-shadow: 0 0 0 2px rgba(204, 0, 0, 0.1);
+}
+
+.btn-login, .btn-register, .btn-create {
+    width: 100%;
+    padding: 1rem;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-login:hover, .btn-register:hover, .btn-create:hover {
+    background: #990000;
+}
+
+.links {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+.links a {
+    color: #cc0000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #990000;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .login-card, .register-card, .create-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Футер — прикреплён к низу */
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    margin-top: auto; /* Это прикрепит футер к низу */
+
+}
+
+/* Герой-секция */
+.hero-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 2rem auto;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.hero-section h1 {
+    color: #cc0000;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Красивый поиск */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #e6b800;
+    border-radius: 50px 0 0 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+    background: #fff;
+}
+
+.search-bar input:focus {
+    border-color: #cc0000;
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+}
+
+.search-bar button {
+    padding: 1rem 1.5rem;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background: #990000;
+}
+
+/* Промо-карточки */
+.promo-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.card-link {
+    text-decoration: none;
+    flex: 1;
+    min-width: 280px;
+    max-width: 320px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 400px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.card-content h3 {
+    color: #cc0000;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Профиль */
+.profile-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.profile-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #e6b800;
+    text-align: center;
+}
+
+.profile-card h2 {
+    color: #cc0000;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.profile-card h3 {
+    color: #cc0000;
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+#userInfo {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+#userInfo p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.profile-actions button {
+    padding: 0.8rem 1.5rem;
+    background: #cc0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.profile-actions button:hover {
+    background: #990000;
+}
+
+.edit-form, .password-form {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.edit-form .input-group, .password-form .input-group {
+    margin-bottom: 1.5rem;
+}
+
+.edit-form label, .password-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.edit-form input, .password-form input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.edit-form input:focus, .password-form input:focus {
+    outline: none;
+    border-color: #cc0000;
+    box-shadow: 0 0 0 2px rgba(204, 0, 0, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-actions button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.form-actions .save-btn {
+    background: #28a745;
+    color: white;
+}
+
+.form-actions .save-btn:hover {
+    background: #218838;
+}
+
+.form-actions .cancel-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.form-actions .cancel-btn:hover {
+    background: #545b62;
+}
+
+#userAds {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.ad-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ad-card h4 {
+    color: #cc0000;
+    margin-bottom: 0.5rem;
+}
+
+.ad-card p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.price {
+    color: #28a745;
+    font-weight: bold;
+}
+
+body {
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* карточки еа всех объявлениях */
+.ads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #ff00ff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #ff00ff;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0 0 25px #00ffff;
+    border-color: #00ffff;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #ff00ff;
+}
+
+.card-content {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.card-content p {
+    margin: 0.25rem 0;
+    color: #cccccc;
+    font-size: 0.9rem;
+    text-shadow: 0 0 3px #00ffff;
+}
+
+.price {
+    font-weight: bold;
+    color: #ff00ff;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.author {
+    color: #aaaaaa;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    text-shadow: 0 0 2px #00ffff;
+}

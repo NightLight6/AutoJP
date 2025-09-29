@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🇯🇵 AutoJP - Главная</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <link rel="stylesheet" href="css/cyberpunk.css">
+    <link rel="stylesheet" href="css/night-tokyo.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">🇯🇵 AutoJP</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="abs.html">Объявления</a>
+            <a href="add-ad.html">Подать объявление</a>
+            <a href="profile.html" id="profileLink" style="display:none;">Профиль</a>
+            <a href="login.html" id="loginLink">Войти</a>
+            <a href="register.html" id="registerLink">Регистрация</a>
+            <div id="userAvatarNav"
+                style="display:none; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; margin-left: 10px; cursor: pointer;">
+                <img id="navAvatarImg" src="" alt="Аватар" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-home">
+        <div class="hero-section">
+            <h1>Добро пожаловать в мир восточных автомобилей</h1>
+            <p class="subtitle">Найдите своё идеальное авто среди тысяч предложений из Японии.</p>
+
+            <!-- Красивая строка поиска -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="🔍 Поиск по модели, марке, году...">
+                <button onclick="searchAds()">Искать</button>
+            </div>
+        </div>
+
+        <!-- Промо-карточки с изображениями -->
+        <div class="promo-cards">
+            <a href="abs.html" class="card-link">
+                <div class="card">
+                    <img src="image/topauc.jpg">
+                    <div class="card-content">
+                        <h3>🔥 Топ-объявления</h3>
+                        <p>Лучшие предложения месяца</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="abs.html" class="card-link">
+                <div class="card">
+                    <img src="image/new.jpg">
+                    <div class="card-content">
+                        <h3>🆕 Новые поступления</h3>
+                        <p>Свежие авто с пробегом</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="card-link">
+                <div class="card">
+                    <img src="image/Auc.jpg">
+                    <div class="card-content">
+                        <h3>🇯🇵 Аукционы Японии</h3>
+                        <p>Прямые поставки из Страны восходящего солнца</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 🇯🇵 AutoJP — Ваша безопасность важна для нас</p>
+    </footer>
+
+    <script src="firebase.js"></script>
+    <script src="index/index.js"></script>
+    <script src="profile/profile.js"></script>
+    <script>
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'cyberpunk') {
+                document.body.classList.add('cyberpunk');
+            } else if (savedTheme === 'night-tokyo') {
+                document.body.classList.add('night-tokyo');
+            }
+        });
+    </script>
+</body>
+
+</html>

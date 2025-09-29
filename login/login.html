@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🇯🇵 AutoJP - Вход в аккаунт</title>
+    <link rel="stylesheet" href="css/cyberpunk.css">
+    <link rel="stylesheet" href="css/night-tokyo.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">🇯🇵 AutoJP</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="register.html">Регистрация</a>
+        </nav>
+    </header>
+
+    <main class="login-container">
+        <div class="login-card">
+            <h2>🇯🇵 AutoJP — Вход в аккаунт</h2>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" id="email" placeholder="Введите ваш email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="Введите пароль" required>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    🔑 Войти
+                </button>
+            </form>
+
+            <div class="links">
+                <p>Нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
+                <p><a href="#" class="forgot">Забыли пароль?</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p style="text-align: center; margin-top: 2rem; color: #666; font-size: 0.9rem;">
+            © 🇯🇵 AutoJP — Ваша безопасность важна для нас
+        </p>
+    </footer>
+
+    <script src="firebase.js"></script>
+    <script src="index/index.js"></script>
+    <script src="profile/profile.js"></script>
+    <script>
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'cyberpunk') {
+                document.body.classList.add('cyberpunk');
+            } else if (savedTheme === 'night-tokyo') {
+                document.body.classList.add('night-tokyo');
+            }
+        });
+    </script>
+</body>
+
+</html>

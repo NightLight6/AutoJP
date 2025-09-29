@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🇯🇵 AutoJP - Все объявления</title>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="css/cyberpunk.css">
+    <link rel="stylesheet" href="css/night-tokyo.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">🇯🇵 AutoJP</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="add-ad.html">Подать объявление</a>
+            <a href="profile.html" id="profileLink" style="display:none;">Профиль</a>
+        </nav>
+    </header>
+
+    <main class="ads-list">
+        <h2>📢 Все объявления</h2>
+
+        <div class="filters">
+            <select id="brandFilter"
+                style="padding: 0.5rem; border: 1px solid #ff00ff; background: rgba(0,0,0,0.7); color: white; border-radius: 6px;">
+                <option value="">Любая марка</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Honda">Honda</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Suzuki">Suzuki</option>
+            </select>
+            <select id="yearFilter"
+                style="padding: 0.5rem; border: 1px solid #ff00ff; background: rgba(0,0,0,0.7); color: white; border-radius: 6px;">
+                <option value="">Любой год</option>
+                <option value="2020">2020+</option>
+                <option value="2015">2015-2019</option>
+                <option value="2010">2010-2015</option>
+                <option value="2000">2000-2010</option>
+                <option value="1990">1990-2000</option>
+            </select>
+            <button id="applyFilters"
+                style="background: rgba(0,0,0,0.7); border: 1px solid #ff00ff; color: white; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Применить</button>
+        </div>
+
+        <div id="adsContainer" class="ads-grid">
+            <!-- Объявления будут подгружаться через JS -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p style="text-align: center; margin-top: 2rem; color: #ffffff; font-size: 0.9rem;">
+            © 🇯🇵 AutoJP — Ваша безопасность важна для нас
+        </p>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="firebase.js"></script>
+    <script src="index/index.js"></script>
+    <script src="profile/profile.js"></script>
+    <script src="abs/abs.js"></script>
+    <script>
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'cyberpunk') {
+                document.body.classList.add('cyberpunk');
+            } else if (savedTheme === 'night-tokyo') {
+                document.body.classList.add('night-tokyo');
+            }
+        });
+    </script>
+</body>
+
+</html>

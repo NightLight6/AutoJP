@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🇯🇵 AutoJP - Регистрация</title>
+    <link rel="stylesheet" href="css/cyberpunk.css">
+    <link rel="stylesheet" href="css/night-tokyo.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">🇯🇵 AutoJP</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="login.html">Войти</a>
+        </nav>
+    </header>
+
+    <main class="register-container">
+        <div class="login-card">
+            <h2>🇯🇵 AutoJP - Регистрация</h2>
+
+            <form id="registerForm">
+                <div class="input-group">
+                    <label for="username">Имя пользователя</label>
+                    <input type="text" id="username" placeholder="Введите ваше имя" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" id="email" placeholder="Введите ваш email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="Введите пароль" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Телефон (опционально)</label>
+                    <input type="tel" id="phone" placeholder="+7 (999) 123-45-67">
+                </div>
+
+                <button type="submit" class="btn-login">
+                    ✅ Зарегистрироваться
+                </button>
+            </form>
+
+            <div class="links">
+                <p>Уже есть аккаунт? <a href="login.html">Войдите здесь</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p style="text-align: center; margin-top: 2rem; color: #ffffff; font-size: 0.9rem;">
+            © 🇯🇵 AutoJP — Ваша безопасность важна для нас
+        </p>
+    </footer>
+    <script src="firebase.js"></script>
+    <script src="register/index.js"></script>
+    <script src="profile/profile.js"></script>
+    <script>
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'cyberpunk') {
+                document.body.classList.add('cyberpunk');
+            } else if (savedTheme === 'night-tokyo') {
+                document.body.classList.add('night-tokyo');
+            }
+        });
+    </script>
+</body>
+
+</html>
