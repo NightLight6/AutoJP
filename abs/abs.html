@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>🇯🇵 AutoJP - Все объявления</title>
-    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
 
-    <!-- Стили -->
     <link rel="stylesheet" href="css/cyberpunk.css">
     <link rel="stylesheet" href="css/night-tokyo.css">
 </head>
+<script src="js/mobile-optimization.js" defer></script>
 
 <body>
     <header class="header">
@@ -51,7 +50,6 @@
         </div>
 
         <div id="adsContainer" class="ads-grid">
-            <!-- Объявления будут подгружаться через JS -->
         </div>
     </main>
 
@@ -61,13 +59,11 @@
         </p>
     </footer>
 
-    <!-- Скрипты -->
     <script src="firebase.js"></script>
     <script src="index/index.js"></script>
     <script src="profile/profile.js"></script>
     <script src="abs/abs.js"></script>
     <script>
-        // Apply theme on page load
         document.addEventListener('DOMContentLoaded', function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'cyberpunk') {

@@ -656,3 +656,87 @@ body.night-tokyo .theme-toggle-btn:hover {
     box-shadow: 0 0 15px #8a2be2;
     border-color: #8a2be2;
 }
+
+/* Mobile-first адаптивность для Ночного Токио */
+
+body.night-tokyo .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #8a2be2;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+body.night-tokyo .nav-menu {
+    display: none;
+    width: 100%;
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+body.night-tokyo .nav-menu.active {
+    display: flex;
+}
+
+body.night-tokyo button,
+body.night-tokyo .btn-login,
+body.night-tokyo .btn-register,
+body.night-tokyo .btn-create,
+body.night-tokyo .theme-toggle-btn {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.8rem 1rem;
+}
+
+body.night-tokyo .search-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 100%;
+}
+
+body.night-tokyo .search-bar input,
+body.night-tokyo .search-bar button {
+    width: 100%;
+    border-radius: 6px;
+}
+
+@media (min-width: 768px) {
+    body.night-tokyo .menu-toggle {
+        display: none;
+    }
+
+    body.night-tokyo .nav-menu {
+        display: flex !important;
+        width: auto;
+        margin-top: 0;
+        gap: 1.5rem;
+    }
+
+    body.night-tokyo .search-bar {
+        flex-direction: row;
+        max-width: 600px;
+    }
+
+    body.night-tokyo .search-bar input {
+        border-radius: 50px 0 0 50px;
+    }
+
+    body.night-tokyo .search-bar button {
+        border-radius: 0 50px 50px 0;
+    }
+
+    body.night-tokyo .ads-grid,
+    body.night-tokyo #userAds {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    body.night-tokyo .ads-grid,
+    body.night-tokyo #userAds {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
