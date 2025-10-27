@@ -3,68 +3,157 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>🇯🇵 AutoJP - Регистрация</title>
-    <link rel="stylesheet" href="css/cyberpunk.css">
-    <link rel="stylesheet" href="css/night-tokyo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇯🇵 Регистрация аккаунта — AutoJP</title>
+    <meta name="description"
+        content="Создайте бесплатный аккаунт на AutoJP для размещения объявлений о продаже автомобилей, управления профилем и общения с покупателями.">
+    <meta name="keywords" content="регистрация, создать аккаунт, signup, AutoJP, продажа авто">
+    <meta name="author" content="AutoJP Team">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="language" content="Russian">
+    <link rel="canonical" href="http://127.0.0.1:5500/register.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://127.0.0.1:5500/register.html">
+    <meta property="og:title" content="🇯🇵 Регистрация аккаунта — AutoJP">
+    <meta property="og:description"
+        content="Создайте бесплатный аккаунт на AutoJP для размещения объявлений о продаже автомобилей.">
+    <meta property="og:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://127.0.0.1:5500/register.html">
+    <meta property="twitter:title" content="🇯🇵 Регистрация аккаунта — AutoJP">
+    <meta property="twitter:description"
+        content="Создайте бесплатный аккаунт на AutoJP для размещения объявлений о продаже автомобилей.">
+    <meta property="twitter:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/cyberpunk.css">
+    <link rel="stylesheet" href="/css/night-tokyo.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
 </head>
-<script src="js/mobile-optimization.js" defer></script>
+<script src="/js/mobile-optimization.js" defer></script>
 
-<body>
-    <header class="header">
-        <div class="logo">🇯🇵 AutoJP</div>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="login.html">Войти</a>
-        </nav>
-    </header>
-
-    <main class="register-container">
-        <div class="login-card">
-            <h2>🇯🇵 AutoJP - Регистрация</h2>
-
-            <form id="registerForm">
-                <div class="input-group">
-                    <label for="username">Имя пользователя</label>
-                    <input type="text" id="username" placeholder="Введите ваше имя" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="email">Электронная почта</label>
-                    <input type="email" id="email" placeholder="Введите ваш email" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="password">Пароль</label>
-                    <input type="password" id="password" placeholder="Введите пароль" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="phone">Телефон (опционально)</label>
-                    <input type="tel" id="phone" placeholder="+7 (999) 123-45-67">
-                </div>
-
-                <button type="submit" class="btn-login">
-                    ✅ Зарегистрироваться
-                </button>
-            </form>
-
-            <div class="links">
-                <p>Уже есть аккаунт? <a href="login.html">Войдите здесь</a></p>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="../index/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">🇯🇵 AutoJP</span>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="/index/index.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Главная</a>
+                    </li>
+                    <li>
+                        <a href="/abs/abs.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Объявления</a>
+                    </li>
+                    <li>
+                        <a href="/add/add-ad.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Подать
+                            объявление</a>
+                    </li>
+                    <li id="profileLink" style="display:none;">
+                        <a href="/profile/profile.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Профиль</a>
+                    </li>
+                    <li id="loginLink">
+                        <a href="/login/login.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Войти</a>
+                    </li>
+                    <li id="registerLink">
+                        <a href="register.html"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                            aria-current="page">Регистрация</a>
+                    </li>
+                    <li id="userAvatarNav" style="display:none;">
+                        <div class="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
+                            <img id="navAvatarImg" src="" alt="Аватар" class="w-full h-full object-cover">
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </main>
+    </nav>
 
-    <footer class="footer">
-        <p style="text-align: center; margin-top: 2rem; color: #ffffff; font-size: 0.9rem;">
-            © 🇯🇵 AutoJP — Ваша безопасность важна для нас
-        </p>
-    </footer>
+    <!-- Register Form -->
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <div
+                class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1
+                        class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Создать аккаунт
+                    </h1>
+                    <form id="registerForm" class="space-y-4 md:space-y-6" action="#">
+                        <div>
+                            <label for="username"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Имя
+                                пользователя</label>
+                            <input type="text" name="username" id="username"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Ваше имя" required="">
+                        </div>
+                        <div>
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="email" name="email" id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="name@company.com" required="">
+                        </div>
+                        <div>
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Пароль</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required="">
+                        </div>
+                        <div>
+                            <label for="phone"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Телефон
+                                (опционально)</label>
+                            <input type="tel" name="phone" id="phone"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="+7 (999) 123-45-67">
+                        </div>
+                        <button type="submit"
+                            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Создать
+                            аккаунт</button>
+                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            Уже есть аккаунт? <a href="/login/login.html"
+                                class="font-medium text-primary-600 hover:underline dark:text-primary-500">Войти</a>
+                        </p>
+                    </form>
+                    <div id="errorMessage" class="error-message text-red-600 text-sm" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="firebase.js"></script>
-    <script src="register/index.js"></script>
-    <script src="profile/profile.js"></script>
+    <script src="/register/index.js"></script>
+    <script src="/profile/profile.js"></script>
     <script>
         // Apply theme on page load
         document.addEventListener('DOMContentLoaded', function () {

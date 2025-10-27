@@ -3,107 +3,241 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>🇯🇵 AutoJP - Профиль пользователя</title>
-    <link rel="stylesheet" href="css/cyberpunk.css">
-    <link rel="stylesheet" href="css/night-tokyo.css">
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js
-  "></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js
-  "></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js
-  "></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js
-  "></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇯🇵 Личный кабинет — AutoJP</title>
+    <meta name="description"
+        content="Управляйте своим профилем на AutoJP: редактируйте информацию, просматривайте свои объявления, изменяйте настройки аккаунта.">
+    <meta name="keywords" content="профиль, личный кабинет, мои объявления, настройки аккаунта, AutoJP">
+    <meta name="author" content="AutoJP Team">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="language" content="Russian">
+    <link rel="canonical" href="http://127.0.0.1:5500/profile.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://127.0.0.1:5500/profile.html">
+    <meta property="og:title" content="🇯🇵 Личный кабинет — AutoJP">
+    <meta property="og:description"
+        content="Управляйте своим профилем на AutoJP: редактируйте информацию и просматривайте объявления.">
+    <meta property="og:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://127.0.0.1:5500/profile.html">
+    <meta property="twitter:title" content="🇯🇵 Личный кабинет — AutoJP">
+    <meta property="twitter:description"
+        content="Управляйте своим профилем на AutoJP: редактируйте информацию и просматривайте объявления.">
+    <meta property="twitter:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/cyberpunk.css">
+    <link rel="stylesheet" href="/css/night-tokyo.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
 </head>
-<script src="js/mobile-optimization.js" defer></script>
+<script src="/js/mobile-optimization.js" defer></script>
 
-<body>
-    <header class="header">
-        <div class="logo">🇯🇵 AutoJP</div>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="abs.html">Объявления</a>
-            <a href="add-ad.html">Подать объявление</a>
-        </nav>
-    </header>
-
-    <main class="profile-container">
-        <div class="profile-card">
-            <h2>👤 Профиль пользователя</h2>
-
-            <div id="userInfo">
-                <div class="avatar-section" style="text-align: center; margin-bottom: 1rem;">
-                    <img id="userAvatar" src="" alt="Аватар"
-                        style="display: none; width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto;">
-                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
-                    <button id="uploadAvatarBtn">📷 Загрузить аватар</button>
-                </div>
-                <p><strong>Имя:</strong> <span id="username"></span></p>
-                <p><strong>Email:</strong> <span id="email"></span></p>
-                <p><strong>Телефон:</strong> <span id="phone"></span></p>
-                <p><strong>Дата регистрации:</strong> <span id="createdAt"></span></p>
-            </div>
-
-            <div class="profile-actions">
-                <button id="editBtn">✏️ Редактировать профиль</button>
-                <button id="changePasswordBtn">🔒 Изменить пароль</button>
-                <button id="logoutBtn">🚪 Выйти</button>
-            </div>
-
-            <div class="theme-switcher">
-                <button id="cyberpunkToggleBtn" class="theme-toggle-btn">🕹️ Киберпанк</button>
-                <button id="nightTokyoToggleBtn" class="theme-toggle-btn">🌃 Ночной Токио</button>
-            </div>
-
-            <form id="editForm" class="edit-form" style="display: none;">
-                <h3>✏️ Редактировать профиль</h3>
-                <div class="input-group">
-                    <label for="editUsername">Имя пользователя</label>
-                    <input type="text" id="editUsername" required>
-                </div>
-                <div class="input-group">
-                    <label for="editPhone">Телефон</label>
-                    <input type="tel" id="editPhone">
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="save-btn">💾 Сохранить</button>
-                    <button type="button" id="cancelBtn" class="cancel-btn">❌ Отмена</button>
-                </div>
-            </form>
-
-            <form id="passwordForm" class="password-form" style="display: none;">
-                <h3>🔒 Изменить пароль</h3>
-                <div class="input-group">
-                    <label for="currentPassword">Текущий пароль</label>
-                    <input type="password" id="currentPassword" required>
-                </div>
-                <div class="input-group">
-                    <label for="newPassword">Новый пароль</label>
-                    <input type="password" id="newPassword" required>
-                </div>
-                <div class="input-group">
-                    <label for="confirmPassword">Подтверждение нового пароля</label>
-                    <input type="password" id="confirmPassword" required>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="save-btn">🔒 Изменить пароль</button>
-                    <button type="button" id="cancelPasswordBtn" class="cancel-btn">❌ Отмена</button>
-                </div>
-            </form>
-
-            <h3>📋 Мои объявления</h3>
-            <div id="userAds">
-                <!-- Объявления пользователя -->
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="/index/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">🇯🇵 AutoJP</span>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="/index/index.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Главная</a>
+                    </li>
+                    <li>
+                        <a href="/abs/abs.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Объявления</a>
+                    </li>
+                    <li>
+                        <a href="/add/add-ad.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Подать
+                            объявление</a>
+                    </li>
+                    <li>
+                        <a href="profile.html"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                            aria-current="page">Профиль</a>
+                    </li>
+                    <li id="loginLink" style="display:none;">
+                        <a href="/login/login.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Войти</a>
+                    </li>
+                    <li id="registerLink" style="display:none;">
+                        <a href="/register/register.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Регистрация</a>
+                    </li>
+                    <li id="userAvatarNav">
+                        <div class="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
+                            <img id="navAvatarImg" src="" alt="Аватар" class="w-full h-full object-cover">
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
-    </main>
+    </nav>
 
-    <footer class="footer">
-        <p>© 🇯🇵 AutoJP — Ваша безопасность важна для нас</p>
-    </footer>
+    <!-- Profile Section -->
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+            <div
+                class="w-full bg-white rounded-lg shadow dark:border sm:max-w-2xl xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1
+                        class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        👤 Профиль пользователя
+                    </h1>
 
-    <script src="firebase.js"></script>
-    <script src="profile/profile.js"></script>
+                    <!-- User Info -->
+                    <div id="userInfo" class="space-y-4">
+                        <div class="flex flex-col items-center space-y-4">
+                            <img id="userAvatar" src="" alt="Аватар" class="w-24 h-24 rounded-full object-cover hidden">
+                            <input type="file" id="avatarInput" accept="image/*" class="hidden">
+                            <button id="uploadAvatarBtn"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">📷 Загрузить
+                                аватар</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 dark:text-white">Имя</label>
+                                <span id="username" class="text-gray-700 dark:text-gray-300"></span>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                <span id="email" class="text-gray-700 dark:text-gray-300"></span>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 dark:text-white">Телефон</label>
+                                <span id="phone" class="text-gray-700 dark:text-gray-300"></span>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 dark:text-white">Дата
+                                    регистрации</label>
+                                <span id="createdAt" class="text-gray-700 dark:text-gray-300"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Actions -->
+                    <div class="flex flex-wrap gap-4">
+                        <button id="editBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">✏️
+                            Редактировать профиль</button>
+                        <button id="changePasswordBtn"
+                            class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">🔒 Изменить
+                            пароль</button>
+                        <button id="logoutBtn" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">🚪
+                            Выйти</button>
+                    </div>
+
+                    <!-- Theme Switcher -->
+                    <div class="flex gap-4">
+                        <button id="cyberpunkToggleBtn"
+                            class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">🕹️
+                            Киберпанк</button>
+                        <button id="nightTokyoToggleBtn"
+                            class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">🌃 Ночной
+                            Токио</button>
+                    </div>
+
+                    <!-- Edit Form -->
+                    <form id="editForm" class="space-y-4 hidden">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">✏️ Редактировать профиль</h3>
+                        <div>
+                            <label for="editUsername"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Имя
+                                пользователя</label>
+                            <input type="text" name="editUsername" id="editUsername"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required="">
+                        </div>
+                        <div>
+                            <label for="editPhone"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Телефон</label>
+                            <input type="tel" name="editPhone" id="editPhone"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div class="flex gap-4">
+                            <button type="submit"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">💾
+                                Сохранить</button>
+                            <button type="button" id="cancelBtn"
+                                class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">❌ Отмена</button>
+                        </div>
+                    </form>
+
+                    <!-- Password Form -->
+                    <form id="passwordForm" class="space-y-4 hidden">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">🔒 Изменить пароль</h3>
+                        <div>
+                            <label for="currentPassword"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Текущий
+                                пароль</label>
+                            <input type="password" name="currentPassword" id="currentPassword"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required="">
+                        </div>
+                        <div>
+                            <label for="newPassword"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Новый
+                                пароль</label>
+                            <input type="password" name="newPassword" id="newPassword"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required="">
+                        </div>
+                        <div>
+                            <label for="confirmPassword"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Подтверждение
+                                нового пароля</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required="">
+                        </div>
+                        <div class="flex gap-4">
+                            <button type="submit"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">🔒 Изменить
+                                пароль</button>
+                            <button type="button" id="cancelPasswordBtn"
+                                class="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">❌ Отмена</button>
+                        </div>
+                    </form>
+
+                    <!-- User Ads -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">📋 Мои объявления</h3>
+                        <div id="userAds" class="space-y-4">
+                            <!-- Объявления пользователя -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/firebase.js"></script>
+    <script src="/profile/profile.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const cyberpunkBtn = document.getElementById('cyberpunkToggleBtn');

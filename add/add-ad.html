@@ -3,119 +3,230 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>🇯🇵 AutoJP - Подать объявление</title>
-    <link rel="stylesheet" href="css/cyberpunk.css">
-    <link rel="stylesheet" href="css/night-tokyo.css">
-</head>
-<script src="js/mobile-optimization.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇯🇵 Подать объявление о продаже автомобиля — AutoJP</title>
+    <meta name="description"
+        content="Разместите бесплатное объявление о продаже автомобиля на AutoJP. Укажите характеристики, добавьте фото, установите цену. Быстрая публикация, широкий охват покупателей.">
+    <meta name="keywords"
+        content="подать объявление, продать авто, разместить объявление, продажа машины, автомобиль на продажу">
+    <meta name="author" content="AutoJP Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Russian">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="http://127.0.0.1:5500/add-ad.html">
+    <link rel="stylesheet" href="/css/cyberpunk.css">
+    <link rel="stylesheet" href="/css/night-tokyo.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://127.0.0.1:5500/add-ad.html">
+    <meta property="og:title" content="🇯🇵 Подать объявление о продаже автомобиля — AutoJP">
+    <meta property="og:description"
+        content="Разместите бесплатное объявление о продаже автомобиля на AutoJP. Укажите характеристики, добавьте фото, установите цену.">
+    <meta property="og:image" content="http://127.0.0.1:5500/image/topauc.jpg">
 
-<body>
-    <header class="header">
-        <div class="logo">🇯🇵 AutoJP</div>
-        <nav>
-            <a href="index.html">Главная</a>
-            <a href="abs.html">Объявления</a>
-            <a href="profile.html" id="profileLink" style="display:none;">Профиль</a>
-        </nav>
-    </header>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://127.0.0.1:5500/add-ad.html">
+    <meta property="twitter:title" content="🇯🇵 Подать объявление о продаже автомобиля — AutoJP">
+    <meta property="twitter:description"
+        content="Разместите бесплатное объявление о продаже автомобиля на AutoJP. Укажите характеристики, добавьте фото, установите цену.">
+    <meta property="twitter:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+</head>
+<script src="/js/mobile-optimization.js" defer></script>
 
-    <main class="form-container">
-        <div class="create-card">
-            <h2>📝 Подать объявление</h2>
-
-            <form id="adForm">
-                <div class="input-group">
-                    <label for="brand">Марка</label>
-                    <input type="text" id="brand" placeholder="Введите марку" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="model">Модель</label>
-                    <input type="text" id="model" placeholder="Введите модель" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="year">Год выпуска</label>
-                    <input type="number" id="year" placeholder="2020" min="1990" max="2025" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="mileage">Пробег (км)</label>
-                    <input type="number" id="mileage" placeholder="35000" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="engine">Двигатель</label>
-                    <select id="engine" required>
-                        <option value="">Выберите тип двигателя</option>
-                        <option value="бензин">Бензин</option>
-                        <option value="дизель">Дизель</option>
-                        <option value="гибрид">Гибрид</option>
-                        <option value="электро">Электро</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="transmission">Коробка передач</label>
-                    <select id="transmission" required>
-                        <option value="">Выберите тип коробки</option>
-                        <option value="механика">Механика</option>
-                        <option value="автомат">Автомат</option>
-                        <option value="вариатор">Вариатор</option>
-                        <option value="робот">Робот</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="drive">Привод</label>
-                    <select id="drive" required>
-                        <option value="">Выберите тип привода</option>
-                        <option value="передний">Передний</option>
-                        <option value="задний">Задний</option>
-                        <option value="полный">Полный</option>
-                    </select>
-                </div>
-
-                <div class="input-group">
-                    <label for="color">Цвет</label>
-                    <input type="text" id="color" placeholder="Введите цвет" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="price">Цена (₽)</label>
-                    <input type="number" id="price" placeholder="1200000" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="description">Описание</label>
-                    <textarea id="description" rows="4" placeholder="Комплектация, состояние, дефекты..."></textarea>
-                </div>
-
-                <div class="input-group">
-                    <label for="photos">Фотографии</label>
-                    <input type="file" id="photos" multiple accept="image/">
-                </div>
-
-                <button type="submit" class="btn-create">
-                    <a href="abs.html">📤 Опубликовать объявление</a>
-                </button>
-            </form>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="/index/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">🇯🇵 AutoJP</span>
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="/index/index.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Главная</a>
+                    </li>
+                    <li>
+                        <a href="/abs/abs.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Объявления</a>
+                    </li>
+                    <li>
+                        <a href="add-ad.html"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                            aria-current="page">Подать объявление</a>
+                    </li>
+                    <li id="profileLink" style="display:none;">
+                        <a href="/profile/profile.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Профиль</a>
+                    </li>
+                    <li id="loginLink">
+                        <a href="/login/login.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Войти</a>
+                    </li>
+                    <li id="registerLink">
+                        <a href="/register/register.html"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Регистрация</a>
+                    </li>
+                    <li id="userAvatarNav" style="display:none;">
+                        <div class="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
+                            <img id="navAvatarImg" src="" alt="Аватар" class="w-full h-full object-cover">
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </main>
+    </nav>
 
-    <footer class="footer">
-        <p>© 🇯🇵 AutoJP — Ваша безопасность важна для нас</p>
-    </footer>
-    <script src="firebase.js"></script>
-    <script src="index/index.js"></script>
-    <script src="profile/profile.js"></script>
-    <script src="add/add-ad.js"></script>
+    <!-- Add Ad Form -->
+    <section>
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+            <div>
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1
+                        class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Подать объявление
+                    </h1>
+                    <form id="adForm" class="space-y-4 md:space-y-6" action="#">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="brand"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Марка</label>
+                                <input type="text" name="brand" id="brand"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Toyota" required="">
+                            </div>
+                            <div>
+                                <label for="model"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Модель</label>
+                                <input type="text" name="model" id="model"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Camry" required="">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="year"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Год
+                                    выпуска</label>
+                                <input type="number" name="year" id="year"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="2020" min="1990" max="2025" required="">
+                            </div>
+                            <div>
+                                <label for="mileage"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Пробег
+                                    (км)</label>
+                                <input type="number" name="mileage" id="mileage"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="35000" required="">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label for="engine"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Двигатель</label>
+                                <select name="engine" id="engine"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required="">
+                                    <option value="">Выберите</option>
+                                    <option value="бензин">Бензин</option>
+                                    <option value="дизель">Дизель</option>
+                                    <option value="гибрид">Гибрид</option>
+                                    <option value="электро">Электро</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="transmission"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Коробка</label>
+                                <select name="transmission" id="transmission"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required="">
+                                    <option value="">Выберите</option>
+                                    <option value="механика">Механика</option>
+                                    <option value="автомат">Автомат</option>
+                                    <option value="вариатор">Вариатор</option>
+                                    <option value="робот">Робот</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="drive"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Привод</label>
+                                <select name="drive" id="drive"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required="">
+                                    <option value="">Выберите</option>
+                                    <option value="передний">Передний</option>
+                                    <option value="задний">Задний</option>
+                                    <option value="полный">Полный</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="color"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цвет</label>
+                                <input type="text" name="color" id="color"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Белый" required="">
+                            </div>
+                            <div>
+                                <label for="price"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена
+                                    (₽)</label>
+                                <input type="number" name="price" id="price"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="1200000" required="">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="description"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Описание</label>
+                            <textarea name="description" id="description" rows="4"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Комплектация, состояние, дефекты..."></textarea>
+                        </div>
+                        <div>
+                            <label for="photos"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Фотографии</label>
+                            <input type="file" name="photos" id="photos" multiple accept="image/*"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <button type="submit"
+                            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Опубликовать
+                            объявление</button>
+                    </form>
+                    <div id="errorMessage" class="error-message text-red-600 text-sm" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/firebase.js"></script>
+    <script src="/index/index.js"></script>
+    <script src="/profile/profile.js"></script>
+    <script src="add-ad.js"></script>
     <script>
-        // Apply theme on page load
         document.addEventListener('DOMContentLoaded', function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'cyberpunk') {

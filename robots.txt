@@ -1,8 +1,8 @@
 User-agent: *
+Allow: /
 Disallow: /login.html
 Disallow: /register.html
 Disallow: /profile.html
-Disallow: /add-ad.html
 Disallow: /api/
 Disallow: /assets/
 Disallow: /css/

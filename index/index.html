@@ -3,89 +3,148 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🇯🇵 Купить японские авто с пробегом — AutoJP</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
-    <link rel="stylesheet" href="css/cyberpunk.css">
-    <link rel="stylesheet" href="css/night-tokyo.css">
-</head>
-<script src="js/mobile-optimization.js" defer></script>
+    <meta name="description"
+        content="Надёжная платформа для покупки и продажи японских автомобилей с пробегом. Актуальные объявления, прозрачные цены, доставка из Японии. Toyota, Honda, Nissan и другие марки.">
+    <meta name="keywords"
+        content="японские автомобили, авто с пробегом, купить машину из Японии, Toyota, Honda, Nissan, аукционы Японии, импорт авто">
+    <meta name="author" content="AutoJP Team">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Russian">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="http://127.0.0.1:5500/index.html">
 
-<body>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://127.0.0.1:5500/index.html">
+    <meta property="og:title" content="🇯🇵 Купить японские авто с пробегом — AutoJP">
+    <meta property="og:description"
+        content="Надёжная платформа для покупки и продажи японских автомобилей с пробегом. Актуальные объявления, прозрачные цены, доставка из Японии.">
+    <meta property="og:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://127.0.0.1:5500/index.html">
+    <meta property="twitter:title" content="🇯🇵 Купить японские авто с пробегом — AutoJP">
+    <meta property="twitter:description"
+        content="Надёжная платформа для покупки и продажи японских автомобилей с пробегом. Актуальные объявления, прозрачные цены, доставка из Японии.">
+    <meta property="twitter:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+    <!-- Стили -->
+    <link rel="stylesheet" href="/css/cyberpunk.css">
+    <link rel="stylesheet" href="/css/night-tokyo.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Header -->
     <header class="header">
         <div class="logo">🇯🇵 AutoJP</div>
-        <nav>
+        <button class="menu-toggle" aria-label="Меню">☰</button>
+        <nav class="nav-menu">
             <a href="index.html">Главная</a>
-            <a href="abs.html">Объявления</a>
-            <a href="add-ad.html">Подать объявление</a>
-            <a href="profile.html" id="profileLink" style="display:none;">Профиль</a>
-            <a href="login.html" id="loginLink">Войти</a>
-            <a href="register.html" id="registerLink">Регистрация</a>
-            <div id="userAvatarNav"
-                style="display:none; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; margin-left: 10px; cursor: pointer;">
-                <img id="navAvatarImg" src="" alt="Аватар" style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
+            <a href="/abs/abs.html">Объявления</a>
+            <a href="/add/add-ad.html">Подать объявление</a>
+            <a href="/profile/profile.html" id="profileLink" style="display:none;">Профиль</a>
+            <a href="/login/login.html">Войти</a>
+            <a href="/register/">Регистрация</a>
         </nav>
     </header>
 
-    <main class="main-home">
-        <div class="hero-section">
-            <meta name="description"
-                content="Надёжная платформа для покупки и продажи японских автомобилей. Актуальные объявления, прозрачные цены, доставка из Японии.">
-            <h1>Авто из Японии — проверенные объявления на AutoJP</h1>
-            <p class="subtitle">Найдите своё идеальное авто среди тысяч предложений из Японии.</p>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Авто из Японии — проверенные объявления на AutoJP</h1>
+        <p>Найдите своё идеальное авто среди тысяч предложений из Японии.</p>
+        <div class="search-bar">
+            <input type="search" id="searchInput" placeholder="Поиск по модели, марке, году..." />
+            <button onclick="searchAds()" class="btn-search">Искать</button>
+        </div>
+    </section>
 
-            <!-- Красивая строка поиска -->
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="🔍 Поиск по модели, марке, году...">
-                <button onclick="searchAds()">Искать</button>
+    <!-- Features -->
+    <section class="features-section">
+        <h2>Почему выбирают AutoJP?</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Проверенные авто</h3>
+                <p>Все автомобили проходят тщательную проверку перед публикацией объявления.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Прозрачные цены</h3>
+                <p>Без скрытых комиссий и дополнительных платежей. Все расходы включены в цену.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Быстрая доставка</h3>
+                <p>Организуем доставку автомобиля из Японии в кратчайшие сроки с полным сопровождением.</p>
             </div>
         </div>
+    </section>
 
-        <!-- Промо-карточки с изображениями -->
+    <!-- Popular Cars -->
+    <section class="popular-section">
+        <h2>Популярные модели</h2>
         <div class="promo-cards">
-            <a href="abs.html" class="card-link">
+            <div class="card-link">
                 <div class="card">
-                    <img src="image/topauc.jpg">
+                    <img src="/image/topauc.jpg" alt="Toyota" loading="lazy" />
                     <div class="card-content">
-                        <h3>🔥 Топ-объявления</h3>
-                        <p>Лучшие предложения месяца</p>
+                        <h3>Toyota</h3>
+                        <p>Надежные и проверенные временем автомобили от японского гиганта.</p>
+                        <a href="ads.html?brand=Toyota" class="btn-view">Смотреть объявления →</a>
                     </div>
                 </div>
-            </a>
-
-            <a href="abs.html" class="card-link">
+            </div>
+            <div class="card-link">
                 <div class="card">
-                    <img src="image/new.jpg">
+                    <img src="/image/new.jpg" alt="Honda" loading="lazy" />
                     <div class="card-content">
-                        <h3>🆕 Новые поступления</h3>
-                        <p>Свежие авто с пробегом</p>
+                        <h3>Honda</h3>
+                        <p>Инновационные технологии и непревзойденное качество от Honda.</p>
+                        <a href="ads.html?brand=Honda" class="btn-view">Смотреть объявления →</a>
                     </div>
                 </div>
-            </a>
-
-            <a href="#" class="card-link">
+            </div>
+            <div class="card-link">
                 <div class="card">
-                    <img src="image/Auc.jpg">
+                    <img src="/image/Auc.jpg" alt="Nissan" loading="lazy" />
                     <div class="card-content">
-                        <h3>🇯🇵 Аукционы Японии</h3>
-                        <p>Прямые поставки из Страны восходящего солнца</p>
+                        <h3>Nissan</h3>
+                        <p>Стильные и динамичные автомобили для современного водителя.</p>
+                        <a href="ads.html?brand=Nissan" class="btn-view">Смотреть объявления →</a>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
-    </main>
+    </section>
 
+    <!-- Footer -->
     <footer class="footer">
-        <p>© 🇯🇵 AutoJP — Ваша безопасность важна для нас</p>
+        <div class="footer-content">
+            <div class="footer-logo">🇯🇵 AutoJP</div>
+            <div class="footer-links">
+                <a href="#">О нас</a>
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Лицензионное соглашение</a>
+                <a href="#">Контакты</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © 2024 AutoJP™. Все права защищены.
+        </div>
     </footer>
 
-    <script src="firebase.js"></script>
-    <script src="index/index.js"></script>
-    <script src="profile/profile.js"></script>
+    <!-- Скрипты -->
+    <script src="/js/firebase.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/mobile-optimization.js" defer></script>
+
+    <!-- Логика тем -->
     <script>
-        // Apply theme on page load
         document.addEventListener('DOMContentLoaded', function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'cyberpunk') {

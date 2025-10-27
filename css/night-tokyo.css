@@ -9,7 +9,7 @@
 
 body.night-tokyo {
     font-family: 'Yu Gothic', 'Hiragino Sans', 'MS Gothic', sans-serif;
-    background: url('../backround/night.jpg') no-repeat center center fixed;
+    background: url('/backround/night3.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     line-height: 1.6;

@@ -9,7 +9,7 @@
 
 body.cyberpunk {
     font-family: 'Orbitron', 'Yu Gothic', 'Hiragino Sans', 'MS Gothic', monospace;
-    background: url('../backround/purple.jpg') no-repeat center center fixed;
+    background: url('/backround/night3.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #ffffff;
     line-height: 1.6;

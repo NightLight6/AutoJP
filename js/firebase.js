@@ -19,4 +19,4 @@ window.db = db;
 window.auth = auth;
 window.storage = storage;
 
-console.log("✅ Firebase успешно инициализирован через CDN");
+console.log("Firebase успешно инициализирован через CDN");
