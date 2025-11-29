@@ -1,196 +1,225 @@
 <!DOCTYPE html>
+
+
+
 <html lang="ru">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇯🇵 Объявления о продаже японских автомобилей — AutoJP</title>
-    <meta name="description"
-        content="Каталог объявлений о продаже японских автомобилей с пробегом. Toyota, Honda, Nissan, Suzuki. Фильтры по марке, году, цене. Проверенные продавцы, фото и характеристики.">
-    <meta name="keywords"
-        content="объявления авто, продажа машин, японские автомобили, Toyota, Honda, Nissan, Suzuki, авто с пробегом, купить машину">
-    <meta name="author" content="AutoJP Team">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="Russian">
-    <meta name="revisit-after" content="1 day">
-    <link rel="canonical" href="http://127.0.0.1:5500/abs.html">
-    <link rel="stylesheet" href="/css/cyberpunk.css">
-    <link rel="stylesheet" href="/css/night-tokyo.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="http://127.0.0.1:5500/abs.html">
-    <meta property="og:title" content="🇯🇵 Объявления о продаже японских автомобилей — AutoJP">
-    <meta property="og:description"
-        content="Каталог объявлений о продаже японских автомобилей с пробегом. Toyota, Honda, Nissan, Suzuki. Фильтры по марке, году, цене.">
-    <meta property="og:image" content="http://127.0.0.1:5500/image/topauc.jpg">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="http://127.0.0.1:5500/abs.html">
-    <meta property="twitter:title" content="🇯🇵 Объявления о продаже японских автомобилей — AutoJP">
-    <meta property="twitter:description"
-        content="Каталог объявлений о продаже японских автомобилей с пробегом. Toyota, Honda, Nissan, Suzuki. Фильтры по марке, году, цене.">
-    <meta property="twitter:image" content="http://127.0.0.1:5500/image/topauc.jpg">
+
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <title>🇯🇵 AutoJP - Все объявления</title>
+
+
+    <!-- Firebase SDK -->
+
 
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+
+
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+
+
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+
+
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Объявления о продаже японских автомобилей",
-      "description": "Каталог объявлений о продаже японских автомобилей с пробегом. Toyota, Honda, Nissan, Suzuki.",
-      "url": "http://127.0.0.1:5500/abs.html",
-      "numberOfItems": "multiple",
-      "itemListElement": []
-    }
-    </script>
+
+
+
+
+    <!-- Стили -->
+
+
+    <link rel="stylesheet" href="/css/cyberpunk.css">
+
+
+    <link rel="stylesheet" href="/css/night-tokyo.css">
+
+
 </head>
-<script src="/js/mobile-optimization.js" defer></script>
 
-<body class="bg-gray-50 dark:bg-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="/index/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">🇯🇵 AutoJP</span>
-            </a>
-            <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-            </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>
-                        <a href="/index/index.html"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Главная</a>
-                    </li>
-                    <li>
-                        <a href="abs.html"
-                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                            aria-current="page">Объявления</a>
-                    </li>
-                    <li>
-                        <a href="/add/add-ad.html"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Подать
-                            объявление</a>
-                    </li>
-                    <li id="profileLink" style="display:none;">
-                        <a href="/profile/profile.html"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Профиль</a>
-                    </li>
-                    <li id="loginLink">
-                        <a href="/login/login.html"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Войти</a>
-                    </li>
-                    <li id="registerLink">
-                        <a href="/register/register.html"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Регистрация</a>
-                    </li>
-                    <li id="userAvatarNav" style="display:none;">
-                        <div class="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
-                            <img id="navAvatarImg" src="" alt="Аватар" class="w-full h-full object-cover">
-                        </div>
-                    </li>
-                </ul>
-            </div>
+
+
+
+
+<body>
+
+
+    <header class="header">
+
+
+        <div class="logo">🇯🇵 AutoJP</div>
+
+
+        <nav>
+            <a href="../index/index.html">Главная</a>
+            <a href="../add/add-ad.html">Подать объявление</a>
+            <a href="../profile/profile.html" id="profileLink" style="display:none;">Профиль</a>
+        </nav>
+
+
+    </header>
+
+
+
+
+
+    <main class="ads-list">
+
+
+        <h2>📢 Все объявления</h2>
+
+
+
+
+
+        <div class="filters">
+
+
+            <select id="brandFilter"
+                style="padding: 0.5rem; border: 1px solid #ff00ff; background: rgba(0,0,0,0.7); color: white; border-radius: 6px;">
+
+
+                <option value="">Любая марка</option>
+
+
+                <option value="Toyota">Toyota</option>
+
+
+                <option value="Honda">Honda</option>
+
+
+                <option value="Nissan">Nissan</option>
+
+
+                <option value="Suzuki">Suzuki</option>
+
+
+            </select>
+
+
+            <select id="yearFilter"
+                style="padding: 0.5rem; border: 1px solid #ff00ff; background: rgba(0,0,0,0.7); color: white; border-radius: 6px;">
+
+
+                <option value="">Любой год</option>
+
+
+                <option value="2020">2020+</option>
+
+
+                <option value="2015">2015-2019</option>
+
+
+                <option value="2010">2010-2015</option>
+
+
+                <option value="2000">2000-2010</option>
+
+
+                <option value="1990">1990-2000</option>
+
+
+            </select>
+
+
+            <button id="applyFilters"
+                style="background: rgba(0,0,0,0.7); border: 1px solid #ff00ff; color: white; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer;">Применить</button>
+
+
         </div>
-    </nav>
 
-    <!-- Ads Section -->
-    <section class="bg-gray-50 dark:bg-gray-900 py-8">
-        <div class="max-w-screen-xl mx-auto px-4">
-            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">📢 Все объявления</h1>
 
-            <!-- Filters -->
-            <div class="mb-8 flex flex-wrap gap-4">
-                <select id="brandFilter"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="">Любая марка</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Honda">Honda</option>
-                    <option value="Nissan">Nissan</option>
-                    <option value="Suzuki">Suzuki</option>
-                </select>
-                <select id="yearFilter"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="">Любой год</option>
-                    <option value="2020">2020+</option>
-                    <option value="2015">2015-2019</option>
-                    <option value="2010">2010-2015</option>
-                    <option value="2000">2000-2010</option>
-                    <option value="1990">1990-2000</option>
-                </select>
-                <button id="applyFilters"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Применить</button>
-            </div>
 
-            <!-- Ads Container -->
-            <div id="adsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Ads will be loaded here -->
-            </div>
+
+
+        <div id="adsContainer" class="ads-grid">
+
+
+            <!-- Объявления будут подгружаться через JS -->
+
+
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-            <div class="sm:flex sm:items-center sm:justify-between">
-                <a href="/index/index.html" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">🇯🇵
-                        AutoJP</span>
-                </a>
-                <ul
-                    class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">О нас</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Политика конфиденциальности</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline me-4 md:me-6">Лицензионное соглашение</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Контакты</a>
-                    </li>
-                </ul>
-            </div>
-            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-                © 2024 <a href="/index/index.html" class="hover:underline">AutoJP™</a>. Все права защищены.
-            </span>
-        </div>
+
+    </main>
+
+
+
+
+
+    <footer class="footer">
+
+
+        <p style="text-align: center; margin-top: 2rem; color: #ffffff; font-size: 0.9rem;">
+
+
+            © 🇯🇵 AutoJP — Ваша безопасность важна для нас
+
+
+        </p>
+
+
     </footer>
 
-    <script src="/firebase.js"></script>
-    <script src="/index/index.js"></script>
-    <script src="/profile/profile.js"></script>
+
+
+
+
+    <!-- Скрипты -->
+
+
+    <script src="../firebase.js"></script>
+    <script src="../index/index.js"></script>
+    <script src="../profile/profile.js"></script>
     <script src="abs.js"></script>
+
+
     <script>
+
+
+        // Apply theme on page load
+
+
         document.addEventListener('DOMContentLoaded', function () {
+
+
             const savedTheme = localStorage.getItem('theme');
+
+
             if (savedTheme === 'cyberpunk') {
+
+
                 document.body.classList.add('cyberpunk');
+
+
             } else if (savedTheme === 'night-tokyo') {
+
+
                 document.body.classList.add('night-tokyo');
+
+
             }
+
+
         });
+
+
     </script>
+
+
 </body>
+
+
+
+
 
 </html>
